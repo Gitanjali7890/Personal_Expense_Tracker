@@ -1,0 +1,45 @@
+h1{
+    color:#2a0b4d;
+    font-size: 85px;
+}
+body{
+    background-color: #d6b7db;
+    text-align: center;
+    font-family: cursive;
+}
+input{
+    font-size: 25px;
+}
+.description{
+    font-size: 25px;
+}
+.edit{
+    color:rgb(107, 32, 32);
+    font-size: 35px;
+    line-height: 25px;
+
+}
+.update{
+    background-color:#57ad81 ;
+    font-size: 25px;
+    padding: 8px;
+    margin: 15px;
+    box-sizing: content-box;
+    transition: background 0.3s ease;
+    border-radius: 12px;
+    cursor:pointer;
+    margin-bottom: 170px;
+    margin-top: 75px;
+}
+.update:hover{
+    background-color: #b5a25e;
+}
+a{
+    text-decoration: none;
+    font-size: 25px;
+}
+.footer {
+    margin-top: 40px;
+    color: #555;
+    font-size: 14px;
+}

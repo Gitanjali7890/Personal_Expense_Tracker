@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary</title>
+    <link rel="stylesheet" href="/static/summary.css">
+</head>
+<body>
+    <div class="summary-container">
+    <h1>Expense Summary</h1>
+    <div class="card">
+    <h2>Total Spent This Month</h2>
+    <p>₹ {{ monthly_total }}</p>
+    </div>
+    <div class="card">
+    <h2>Total Spent This Year</h2>
+    <p class="totalyear">₹ {{ yearly_total }}</p>
+    </div>
+    <br>
+
+    <a href="/view">View Expenses</a>
+    <a href="/add">Add Expense</a>
+    <div class="footer">
+    © 2025 Personal Expense Tracker
+</div>
+</div>
+</body>
+</html>

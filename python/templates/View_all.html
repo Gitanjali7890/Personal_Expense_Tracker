@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View all expenditure</title>
+    <link rel="stylesheet" href="/static/view_all.css">
+</head>
+<body>
+    <h1>Your Expenditure Till Now Is: </h1>
+    <div class="sort-container">
+    <h2>Sort By:</h2>
+
+<a href="/view?sort=date" class="sort-btn">📅 Date (Latest)</a>                                                   
+<a href="/view?sort=amount_high" class="sort-btn">💰 Amount (High → Low)</a>                                              
+<a href="/view?sort=amount_low" class="sort-btn">💸 Amount (Low → High)</a>                                           
+</div>
+<br><br>
+
+    <table border="1" cellpadding="10">
+    <tr>
+        <th>Sr.No.</th>
+        <th>Title</th>
+        <th>Amount</th>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Action</th>
+    </tr>
+
+    {% for expense in expenses %}
+    <tr>
+        <td>{{loop.index}}</td>
+        <td>{{ expense.title }}</td>
+        <td>₹{{ expense.amount }}</td>
+        <td>{{ expense.date }}</td>
+        <td>{{ expense.description }}</td>
+        <td>
+            <a href="/edit/{{ expense.id }}" class="btn btn-edit">Edit</a>
+            <form action="/delete/{{ expense.id }}" method="POST" style="display:inline;">
+                <button type="submit" onclick="return confirm('Are you sure?')" class="btn-delete">
+                    Delete
+                </button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+<div class="buttonsback">
+<a href="/summary" class="summaryto">Summary</a>
+<a href="/" class="backhome">Back to home</a></div>
+<div class="footer">
+    © 2025 Personal Expense Tracker
+</div>
+
+</body>
+</html>

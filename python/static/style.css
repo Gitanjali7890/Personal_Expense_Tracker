@@ -1,0 +1,41 @@
+body {
+    font-family: cursive;
+    font-size: 30px;
+    background-color: #b6aaaa;
+    padding: 20px;
+    text-align: center;
+
+}
+
+h1 {
+    color: #2666bb;
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.back{
+    margin-bottom: 200px;
+    box-sizing: content-box;
+    font-size: 25px;
+    cursor:pointer;
+    
+}
+input, button {
+    padding: 8px;
+    margin: 15px;
+    box-sizing: content-box;
+    font-size: 19px;
+    border-radius: 12px;          /* Rounded corners */
+    background-color: #b3c1e7;  /* Pink background */
+   transition: background 0.3s ease
+   
+} 
+.back:hover{
+    background-color: rgb(13, 62, 82);
+    
+}
+.footer {
+    margin-top: 40px;
+    color: #555;
+    font-size: 14px;
+}
