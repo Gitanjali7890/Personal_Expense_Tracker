@@ -1,15 +1,36 @@
 from flask import Flask, render_template, request, redirect, flash
 import sqlite3
+import os
 from datetime import date
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
 
 app.secret_key = "secrect123"   #secrect key is addded o show the message
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_PATH = os.path.join(BASE_DIR, "expenses.db")
+
 def get_db_connection():
-    conn = sqlite3.connect('expenses.db')
+    conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     return conn
+def init_db():
+    conn = get_db_connection()
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS expenses (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            title TEXT NOT NULL,
+            amount REAL NOT NULL,
+            date TEXT NOT NULL,
+            description TEXT
+        )
+    """)
+    conn.commit()
+    conn.close()
+app = Flask(__name__)
+
+init_db()
+
 @app.route('/')
 def about():
     return render_template('index.html')   # to show the index page at first
