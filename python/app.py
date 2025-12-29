@@ -2,7 +2,8 @@ from flask import Flask, render_template, request, redirect, flash
 import sqlite3
 from datetime import date
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates', static_folder='static')
+
 app.secret_key = "secrect123"   #secrect key is addded o show the message
 
 def get_db_connection():
