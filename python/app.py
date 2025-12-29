@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request, redirect, flash
 import sqlite3
-import os
+
 from datetime import date
+import os
+
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
 
@@ -28,7 +30,7 @@ def init_db():
     conn.commit()
     conn.close()
 app = Flask(__name__)
-
+app.secret_key = "secrect123"
 init_db()
 
 @app.route('/')
