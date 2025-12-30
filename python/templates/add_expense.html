@@ -7,7 +7,7 @@
 <body>
     <h1>Expense Tracker</h1>
 
-    <form method="POST">
+    <form method="POST" action="/add">
       Expenses Name:
         <input type="text" name="title" placeholder="Expense name" required>
         <br>
@@ -20,6 +20,16 @@
         Date:
         <input type="date" name="date" placeholder="Date" required>
         <br>
+            <label>Category</label>
+<select name="category" required>
+    <option value="">Select Category</option>
+    <option value="Food">Food</option>
+    <option value="Travel">Travel</option>
+    <option value="Bills">Bills</option>
+    <option value="Shopping">Shopping</option>
+    <option value="Other">Other</option>
+</select>
+<br>
         <button type="submit" class="back">Add Expense</button>
     </form>
 
@@ -32,6 +42,7 @@
     </ul>
   {% endif %}
 {% endwith %}
+
 
     <a href="/" >Back to Home</a>
     <div class="footer">

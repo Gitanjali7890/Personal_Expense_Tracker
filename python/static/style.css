@@ -39,3 +39,13 @@ input, button {
     color: #555;
     font-size: 14px;
 }
+select {
+    padding: 8px;
+    margin: 15px;
+    box-sizing: content-box;
+    font-size: 19px;
+    border-radius: 12px;          /* Rounded corners */
+    background-color: #b3c1e7;  /* Pink background */
+   transition: background 0.3s ease;
+}
+
