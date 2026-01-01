@@ -1,2 +1,11 @@
+#this file is created to tell on which python packages are depending
+
+# Flask: Web framework used to build the backend of the application
+# Handles routing, requests, responses, and templates
+#Flask → backend framework
 Flask
+
+# gunicorn: Production-ready WSGI HTTP server
+# Used to serve the Flask app in deployment environments (Render, Heroku, etc.)
+#gunicorn → production deployment knowledge
 gunicorn

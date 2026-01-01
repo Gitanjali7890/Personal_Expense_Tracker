@@ -1,3 +1,13 @@
+#this file is create to tell github which files to be ignore
+
+# Ignore all database files (e.g., SQLite databases)
+# These files store local data and should not be committed
 *.db
+
+# Ignore Python cache directories
+# Auto-generated files created when Python code runs
 __pycache__/
+
+# Ignore environment variables file
+# Contains sensitive information like secret keys and passwords
 .env

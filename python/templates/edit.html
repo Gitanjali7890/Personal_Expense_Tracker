@@ -7,26 +7,38 @@
     <link rel="stylesheet" href="/static/edit.css">
 </head>
 <body>
+    <!--title of edit page-->
     <h1>Edit Expense</h1>
+    <!--for editing the already input data by user-->
+    <form method="POST" class="edit" id="editForm" onsubmit="return confirmUpdate()">
+        Expense Title:
+        <input type="text" name="title" value="{{ expense.title }}" required><br><br>
+        Amount:
+        <input type="number" step="0.01" name="amount" value="{{ expense.amount }}" required><br><br>
+        Date:
+        <input type="date" name="date" value="{{ expense.date }}" required><br><br>
+        Description:
+        <textarea name="description" class="description" cols="30">{{ expense.description }}</textarea><br><br>
+        <!--category input button using select-->
+        <label>Category</label>
+            <select name="category" required>
+                <option value="Food" {% if expense['category']=='Food' %}selected{% endif %}>Food</option>
+                <option value="Travel" {% if expense['category']=='Travel' %}selected{% endif %}>Travel</option>
+                <option value="Bills" {% if expense['category']=='Bills' %}selected{% endif %}>Bills</option>
+                <option value="Shopping" {% if expense['category']=='Shopping' %}selected{% endif %}>Shopping</option>
+                <option value="Other" {% if expense['category']=='Other' %}selected{% endif %}>Other</option>
+            </select>
 
-<form method="POST" class="edit">
-    Expense Title:
-    <input type="text" name="title" value="{{ expense.title }}" required><br><br>
-    Amount:
-    <input type="number" step="0.01" name="amount" value="{{ expense.amount }}" required><br><br>
-    Date:
-    <input type="date" name="date" value="{{ expense.date }}" required><br><br>
-    Description:
-    <textarea name="description" class="description" cols="30">{{ expense.description }}</textarea><br><br>
-
-    <button type="submit" class="update">Update Expense</button>
-</form>
-<div class="footer">
-    © 2025 Personal Expense Tracker
-</div>
-
-
+        <button type="submit" class="update">Update Expense</button>
+    </form>
 <br>
-<a href="/view">⬅ Back to View All Expenses</a>
+
+    <!--back to index page button-->
+    <a href="/view">⬅ Back to View All Expenses</a>
+
+    <!--copyright logo-->
+    <div class="footer">
+        © 2025 Personal Expense Tracker
+    </div>
 </body>
 </html>

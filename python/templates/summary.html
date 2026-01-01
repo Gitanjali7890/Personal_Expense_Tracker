@@ -7,23 +7,31 @@
     <link rel="stylesheet" href="/static/summary.css">
 </head>
 <body>
+    <!--created a div which contains more div-->
     <div class="summary-container">
-    <h1>Expense Summary</h1>
-    <div class="card">
-    <h2>Total Spent This Month</h2>
-    <p>₹ {{ monthly_total }}</p>
-    </div>
-    <div class="card">
-    <h2>Total Spent This Year</h2>
-    <p class="totalyear">₹ {{ yearly_total }}</p>
-    </div>
+        <!--title of page-->
+        <h1>Expense Summary</h1>
+        <!--2nd div to make a card-->
+        <div class="card">
+            <!--card for total expenditure for month-->
+            <h2>Total Spent This Month</h2>
+            <p>₹ {{ monthly_total }}</p>
+        </div>
+        <!--3rd div for another card-->
+        <div class="card">
+            <!--card for total expenditure for year-->
+            <h2>Total Spent This Year</h2>
+            <p class="totalyear">₹ {{ yearly_total }}</p>
+        </div>
     <br>
-
-    <a href="/view">View Expenses</a>
-    <a href="/add">Add Expense</a>
-    <div class="footer">
-    © 2025 Personal Expense Tracker
-</div>
-</div>
+        <!--buttons-->
+        <a href="/view">View Expenses</a>    <!--back to view all expense page-->
+        <a href="/add">Add Expense</a>       <!--back to add expenditure page-->
+        
+        <!--another div for copyright logo arw-->
+        <div class="footer">
+        © 2025 Personal Expense Tracker
+        </div>
+    </div>
 </body>
 </html>

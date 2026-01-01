@@ -1,9 +1,12 @@
+# --------import database, flask and os--------
 from flask import Flask, render_template, request, redirect, flash
 import sqlite3
 from datetime import date as dt_date
 import os
 
+#------ call flask-------
 app = Flask(__name__)
+#----- add secret key for printing message-------
 app.secret_key = "secret123"
 
 # ---------- DATABASE ----------
@@ -34,11 +37,11 @@ init_db()
 
 # ---------- ROUTES ----------
 
-@app.route('/')
+@app.route('/')     #------ route for home-----
 def home():
     return render_template('index.html')
 
-@app.route('/add', methods=['GET', 'POST'])
+@app.route('/add', methods=['GET', 'POST'])    #----route for add expenses----
 def add_expense():
     if request.method == 'POST':
         title = request.form.get('title')
@@ -48,8 +51,9 @@ def add_expense():
         category = request.form.get('category')
 
         if not title or not amount or not expense_date or not category:
-            flash("❌ Please fill all required fields")
+            flash("❌ Please fill all required fields")    #---required fill msg for field----
             return redirect('/add')
+       
 
         conn = get_db_connection()
         conn.execute(
@@ -59,12 +63,12 @@ def add_expense():
         conn.commit()
         conn.close()
 
-        flash("✅ Expense added successfully!")
+        flash("✅ Expense added successfully!")       #---flask message using secret key----
         return redirect('/add')
 
     return render_template('add_expense.html')
 
-@app.route('/view')
+@app.route('/view')           #----route for view all -----
 def view_expenses():
     sort = request.args.get('sort')
     category = request.args.get('category')
@@ -89,7 +93,7 @@ def view_expenses():
 
     return render_template('View_all.html', expenses=expenses)
 
-@app.route('/delete/<int:id>', methods=['POST'])
+@app.route('/delete/<int:id>', methods=['POST'])        #-----delete button route in view all-----
 def delete_expense(id):
     conn = get_db_connection()
     conn.execute("DELETE FROM expenses WHERE id = ?", (id,))
@@ -97,7 +101,7 @@ def delete_expense(id):
     conn.close()
     return redirect('/view')
 
-@app.route('/edit/<int:id>', methods=['GET', 'POST'])
+@app.route('/edit/<int:id>', methods=['GET', 'POST'])      #-----edit button route in view all-----
 def edit_expense(id):
     conn = get_db_connection()
 
@@ -122,7 +126,7 @@ def edit_expense(id):
     conn.close()
     return render_template('edit.html', expense=expense)
 
-@app.route('/summary')
+@app.route('/summary')          #----route for summary 
 def summary():
     today = dt_date.today()
     month = today.strftime('%Y-%m')
@@ -143,12 +147,13 @@ def summary():
 
     return render_template('summary.html', monthly_total=monthly, yearly_total=yearly)
 
-@app.route('/total')
+@app.route('/total')             #-------route for total------
 def total():
     conn = get_db_connection()
     total = conn.execute("SELECT SUM(amount) FROM expenses").fetchone()[0] or 0
     conn.close()
     return render_template('total.html', total=total)
+
 
 # ---------- RUN ----------
 if __name__ == '__main__':

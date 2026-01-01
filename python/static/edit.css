@@ -1,24 +1,35 @@
-h1{
-    color:#2a0b4d;
-    font-size: 85px;
-}
+/*overall design for edit page*/
 body{
     background-color: #d6b7db;
     text-align: center;
     font-family: cursive;
 }
+
+/*title of edit page*/
+h1{
+    color:#2a0b4d;
+    font-size: 85px;
+}
+
+/*for input button*/
 input{
     font-size: 25px;
 }
-.description{
-    font-size: 25px;
-}
+
+/*for overall form*/
 .edit{
     color:rgb(107, 32, 32);
     font-size: 35px;
     line-height: 25px;
 
 }
+
+/*for description input*/
+.description{
+    font-size: 25px;
+}
+
+/*udate button*/
 .update{
     background-color:#57ad81 ;
     font-size: 25px;
@@ -27,17 +38,23 @@ input{
     box-sizing: content-box;
     transition: background 0.3s ease;
     border-radius: 12px;
-    cursor:pointer;
+    cursor:pointer;      /*which cursor will be shown*/
     margin-bottom: 170px;
     margin-top: 75px;
 }
+
+/*hover for update expense button*/
 .update:hover{
     background-color: #b5a25e;
 }
+
+/*for back to home button*/
 a{
     text-decoration: none;
     font-size: 25px;
 }
+
+/*copyright logo*/
 .footer {
     margin-top: 40px;
     color: #555;

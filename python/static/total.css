@@ -1,24 +1,33 @@
+/*overall page*/
+body{
+    background-color: rgb(199, 197, 197);
+    text-align: center;
+}
+
+/*title of page*/
 h1{
     color:rgb(65, 15, 70);
     font-size: 70px;
     margin-top: 60px;
     margin-bottom: 60px;
 }
+
+/*total amount*/
 h2{
     color:rgb(116, 31, 80);
     font-size: 50px;
     margin-bottom: 350px;
 }
+
+/*back to home button*/
 a{
     text-decoration:none ;
     font: 600;
     font-size:50px ;
     
 }
-body{
-    background-color: rgb(199, 197, 197);
-    text-align: center;
-}
+
+/*copyright logo*/
 .footer {
     margin-top: 40px;
     color: #555;

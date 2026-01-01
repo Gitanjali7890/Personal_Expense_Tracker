@@ -5,9 +5,11 @@
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
+  <!--Title of add expenditure page-->
     <h1>Expense Tracker</h1>
 
-    <form method="POST" action="/add">
+    <!--form for input expenditure by user-->
+    <form method="POST" action="/add" onsubmit="return validateExpenseForm()">
       Expenses Name:
         <input type="text" name="title" placeholder="Expense name" required>
         <br>
@@ -20,19 +22,21 @@
         Date:
         <input type="date" name="date" placeholder="Date" required>
         <br>
-            <label>Category</label>
-<select name="category" required>
-    <option value="">Select Category</option>
-    <option value="Food">Food</option>
-    <option value="Travel">Travel</option>
-    <option value="Bills">Bills</option>
-    <option value="Shopping">Shopping</option>
-    <option value="Other">Other</option>
-</select>
+        <!--category for filtering-->
+        <label>Category</label>
+            <select name="category" required>
+              <option value="">Select Category</option>
+              <option value="Food">Food</option>
+              <option value="Travel">Travel</option>
+              <option value="Bills">Bills</option>
+              <option value="Shopping">Shopping</option>
+              <option value="Other">Other</option>
+            </select>
 <br>
         <button type="submit" class="back">Add Expense</button>
     </form>
 
+    <!--message of successfull added expense-->
     {% with messages = get_flashed_messages() %}
   {% if messages %}
     <ul>
@@ -43,12 +47,12 @@
   {% endif %}
 {% endwith %}
 
-
+    <!--back to index page button-->
     <a href="/" >Back to Home</a>
+    <!--copyright logo-->
     <div class="footer">
     © 2025 Personal Expense Tracker
-</div>
+    </div>
 
-      
 </body>
 </html>
