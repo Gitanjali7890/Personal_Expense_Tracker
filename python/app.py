@@ -147,12 +147,36 @@ def summary():
 
     return render_template('summary.html', monthly_total=monthly, yearly_total=yearly)
 
-@app.route('/total')             #-------route for total------
+#---route for total expenditure----
+@app.route("/total")
 def total():
     conn = get_db_connection()
-    total = conn.execute("SELECT SUM(amount) FROM expenses").fetchone()[0] or 0
+    cursor = conn.cursor()
+
+    # Total expense
+    cursor.execute("SELECT SUM(amount) FROM expenses")
+    total = cursor.fetchone()[0] or 0
+
+    # Category-wise breakdown
+    cursor.execute("""
+        SELECT category, SUM(amount) AS total_amount
+        FROM expenses
+        GROUP BY category
+    """)
+    rows = cursor.fetchall()
+
     conn.close()
-    return render_template('total.html', total=total)
+
+    category_data = [
+        {"category": row[0], "total_amount": row[1]}
+        for row in rows
+    ]
+
+    return render_template(
+        "total.html",
+        total=total,
+        category_data=category_data
+    )
 
 
 # ---------- RUN ----------

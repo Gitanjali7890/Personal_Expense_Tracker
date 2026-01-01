@@ -2,23 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Total Expenditure</title>
     <link rel="stylesheet" href="/static/total.css">
 </head>
 <body>
-    <!--title of page-->
+<!--title of page-->
     <h1>Total Expenditure</h1>
-    
-    <!--amount of total expenditure store by user-->
+    <!--total expenditure amount-->
     <h2>₹ {{ total }}</h2>
 
-    <!--back to home button-->
+    <!--div for table-->
+    <div class="breakdown-container">
+        <h2>Expense Breakdown (Category-wise)</h2>
+
+        <table class="breakdown-table">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Total Amount (₹)</th>
+                </tr>
+            </thead>
+
+        <!-- ✅ tbody MUST be inside table -->
+            <tbody id="breakdownBody"></tbody>
+        </table>
+    </div>
+
+<!-- ✅ Jinja to JS injection -->
+    <script id="category-data" type="application/json">
+        {{ category_data | tojson }}
+    </script>
+
+<!--js link-->
+    <script src="{{ url_for('static', filename='js/breakdown.js') }}"></script>
+<!--back to home button-->
     <a href="/">⬅ Back to Home</a>
 
-    <!--div for footer for copyright logo-->
     <div class="footer">
         © 2025 Personal Expense Tracker
     </div>
+
 </body>
 </html>
