@@ -4,37 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Personal Expense Tracker</title>
+
+    <!-- Main CSS -->
     <link rel="stylesheet" href="/static/index.css">
 </head>
 <body>
-    <!--title of index page-->
-    <h1>
-        Your Personal Expense Tracker
-    </h1>
-    <!--subtitle-->
+
+    <!-- ===================== MAIN HEADING ===================== -->
+    <h1>Your Personal Expense Tracker</h1>
+
+    <!-- ===================== SUBTITLE ===================== -->
     <p>Track your daily spending and manage your money smartly.</p>
+
+    <!-- ===================== NAVIGATION ===================== -->
     <nav>
-        <!--button of another pages-->
-    <a href="/add" class="addex">Add Expense</a>        &nbsp;          &nbsp;<!--add expenditure button-->
-    <a href="/view" class="viewall">View All Expense</a>&nbsp;          &nbsp;<!--view all expenditure button-->
-    <a href="/total" class="totalex">Total Expenditure</a>&nbsp;          &nbsp;<!--total expenditure button-->
-    <button id="showChartBtn">📊 Show Expense Pie Chart</button>&nbsp;          &nbsp; <!--pie chart to show expense-->
-    <div id="chartContainer" style="display:none; width:400px; margin:30px auto;">
-    <canvas id="expensePieChart"></canvas>
-    </div>
-    <script id="category-data" type="application/json">
-    {{ category_data | tojson }}
-    </script>
+
+        <!-- ===== FIRST ROW: MAIN ACTIONS ===== -->
+        <div class="nav-row">
+            <a href="/add" class="addex">Add Expense</a>
+            <a href="/view" class="viewall">View All Expense</a>
+            <a href="/total" class="totalex">Total Expenditure</a>
+        </div>
+
+        <!-- ===== SECOND ROW: CHART BUTTONS ===== -->
+        <div class="nav-row">
+            <button id="showChartBtn">📊 Show Expense Pie Chart</button>
+            <button id="toggleChartBtn" class="chart-btn">📈 Show Monthly Trend</button>
+        </div>
+
+        <!-- ===== PIE CHART CONTAINER ===== -->
+        <div id="chartContainer" class="hidden">
+            <canvas id="expensePieChart"></canvas>
+        </div>
+
+        <!-- ===== LINE CHART CONTAINER ===== -->
+        <div id="lineChartContainer" class="hidden">
+            <canvas id="monthlyLineChart"></canvas>
+        </div>
 
     </nav>
-    <!--footer for copyright symbol-->
-    <div class="footer">
-        <footer>
-    © 2025 Personal Expense Tracker
-    </footer>
-    </div>
+
+    <!-- ===================== DATA FROM FLASK ===================== -->
+    <script id="category-data" type="application/json">
+        {{ category_data | tojson }}
+    </script>
+
+    <!-- ===================== CHART.JS CDN ===================== -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- ===================== CUSTOM JS ===================== -->
     <script src="{{ url_for('static', filename='js/pie_chart.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/lineChart.js') }}"></script>
+
+    <!-- ===================== FOOTER ===================== -->
+    <div class="footer">
+        © 2025 Personal Expense Tracker
+    </div>
 
 </body>
 </html>
