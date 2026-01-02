@@ -18,6 +18,14 @@
     <a href="/add" class="addex">Add Expense</a>        &nbsp;          &nbsp;<!--add expenditure button-->
     <a href="/view" class="viewall">View All Expense</a>&nbsp;          &nbsp;<!--view all expenditure button-->
     <a href="/total" class="totalex">Total Expenditure</a>&nbsp;          &nbsp;<!--total expenditure button-->
+    <button id="showChartBtn">📊 Show Expense Pie Chart</button>&nbsp;          &nbsp; <!--pie chart to show expense-->
+    <div id="chartContainer" style="display:none; width:400px; margin:30px auto;">
+    <canvas id="expensePieChart"></canvas>
+    </div>
+    <script id="category-data" type="application/json">
+    {{ category_data | tojson }}
+    </script>
+
     </nav>
     <!--footer for copyright symbol-->
     <div class="footer">
@@ -25,5 +33,8 @@
     © 2025 Personal Expense Tracker
     </footer>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='js/pie_chart.js') }}"></script>
+
 </body>
 </html>

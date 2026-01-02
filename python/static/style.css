@@ -1,56 +1,127 @@
-/*overall page design */
+/* ===== Reset & Base ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
 body {
-    font-family: cursive;      /*change the writing style of whole page*/
-    font-size: 30px;
-    background-color: #b6aaaa;
-    padding: 20px;
-    text-align: center;
-
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #1e293b, #020617);
+    color: #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-/*design for title*/
+/* ===== Page Title ===== */
 h1 {
-    color: #2666bb;
-    text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: 25px;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #f8fafc;
+    letter-spacing: 0.5px;
 }
 
-/*design for forms input button*/
-input, button {
-    padding: 8px;
-    margin: 15px;
-    box-sizing: content-box;
-    font-size: 19px;
-    border-radius: 12px;          /* Rounded corners */
-    background-color: #b3c1e7;  /* background */
-} 
+/* ===== Form Card ===== */
+form {
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(12px);
+    width: 420px;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
 
-/*design for category button as we have created category using select*/
+/* ===== Labels ===== */
+form label,
+form {
+    font-size: 0.95rem;
+}
+
+/* ===== Inputs & Select ===== */
+input,
 select {
-    padding: 8px;
-    margin: 15px;
-    box-sizing: content-box;
-    font-size: 19px;
-    border-radius: 12px;          /* Rounded corners */
-    background-color: #b3c1e7;  /* background */
+    width: 100%;
+    padding: 12px 14px;
+    margin-top: 6px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+    border: 1px solid #334155;
+    background: #020617;
+    color: #f8fafc;
+    outline: none;
+    transition: all 0.25s ease;
 }
 
-/*add expense button design*/
-.back{
-    margin-bottom: 200px;
-    box-sizing: content-box;
-    font-size: 25px;
-    cursor:pointer;
-    
+input::placeholder {
+    color: #94a3b8;
 }
-/*hover for add expense button*/
-.back:hover{
-    background-color: rgb(13, 62, 82);
-    
+
+/* Focus Effect */
+input:focus,
+select:focus {
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25);
 }
-/*copyright logo*/
+
+/* ===== Button ===== */
+button.back {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #22d3ee, #3b82f6);
+    color: #020617;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button.back:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(56, 189, 248, 0.4);
+}
+
+/* ===== Flash Messages ===== */
+ul {
+    list-style: none;
+    margin-top: 15px;
+}
+
+ul li {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #22c55e;
+}
+
+/* ===== Back Link ===== */
+a {
+    margin-top: 18px;
+    color: #38bdf8;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #7dd3fc;
+}
+
+/* ===== Footer ===== */
 .footer {
-    margin-top: 40px;
-    color: #555;
-    font-size: 14px;
+    margin-top: 35px;
+    font-size: 0.75rem;
+    color: #94a3b8;
+    opacity: 0.8;
+}
+/*calender picker in date input*/
+input[type="date"] {
+    color-scheme: dark;
 }

@@ -1,62 +1,128 @@
-/*overall design for edit page*/
-body{
-    background-color: #d6b7db;
-    text-align: center;
-    font-family: cursive;
+/* ===== Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
 }
 
-/*title of edit page*/
-h1{
-    color:#2a0b4d;
-    font-size: 85px;
+/* ===== Background ===== */
+body {
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #1f2933, #020617);
+    color: #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-/*for input button*/
-input{
-    font-size: 25px;
+/* ===== Title ===== */
+h1 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 28px;
+    color: #f8fafc;
+    letter-spacing: 0.6px;
 }
 
-/*for overall form*/
-.edit{
-    color:rgb(107, 32, 32);
-    font-size: 35px;
-    line-height: 25px;
-
+/* ===== Glass Form Card ===== */
+form.edit {
+    width: 450px;
+    padding: 32px 34px;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(14px);
+    border-radius: 18px;
+    box-shadow:
+        0 25px 45px rgba(0, 0, 0, 0.65),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
-/*for description input*/
-.description{
-    font-size: 25px;
+/* ===== Labels ===== */
+form.edit {
+    font-size: 0.95rem;
 }
 
-/*udate button*/
-.update{
-    background-color:#57ad81 ;
-    font-size: 25px;
-    padding: 8px;
-    margin: 15px;
-    box-sizing: content-box;
-    transition: background 0.3s ease;
+/* ===== Inputs / Select / Textarea ===== */
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 12px 14px;
+    margin-top: 6px;
+    margin-bottom: 20px;
     border-radius: 12px;
-    cursor:pointer;      /*which cursor will be shown*/
-    margin-bottom: 170px;
-    margin-top: 75px;
+    border: 1px solid #334155;
+    background: #020617;
+    color: #f8fafc;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.25s ease;
 }
 
-/*hover for update expense button*/
-.update:hover{
-    background-color: #b5a25e;
+/* Placeholder */
+input::placeholder,
+textarea::placeholder {
+    color: #94a3b8;
 }
 
-/*for back to home button*/
-a{
+/* Focus */
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.35);
+}
+
+/* Date picker visibility */
+input[type="date"] {
+    color-scheme: dark;
+    cursor: pointer;
+}
+
+/* Textarea */
+textarea.description {
+    min-height: 90px;
+    resize: vertical;
+}
+
+/* ===== Update Button ===== */
+button.update {
+    width: 100%;
+    padding: 13px;
+    margin-top: 12px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #8b5cf6, #22d3ee);
+    color: #020617;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+button.update:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(139, 92, 246, 0.45);
+}
+
+/* ===== Back Link ===== */
+a {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #94a3b8;
     text-decoration: none;
-    font-size: 25px;
+    transition: color 0.2s ease;
 }
 
-/*copyright logo*/
+a:hover {
+    color: #c7d2fe;
+}
+
+/* ===== Footer ===== */
 .footer {
-    margin-top: 40px;
-    color: #555;
-    font-size: 14px;
+    margin-top: 38px;
+    font-size: 0.75rem;
+    color: #94a3b8;
+    opacity: 0.8;
 }

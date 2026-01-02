@@ -1,91 +1,119 @@
-/*overall page desgin*/
-body{
-    background-color: rgb(238, 208, 172);
-    text-align: center;
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/*title desgining on index page*/
-h1{
+/* Page Background */
+body {
+    background: linear-gradient(135deg, #1e1e1e, #2b2b2b);
+    min-height: 100vh;
     text-align: center;
-    /* margin creates extra space around an element.*/
-    margin-top: 120px;
-    margin-bottom: 150px;
-    padding: 30px;               /*Padding creates extra space within an element*/
-    color: rgb(112, 32, 32);
-    border-radius: 16px;    
-    font-size: 50px;
+    color: #e0e0e0;
 }
 
-/*desgin for p tag which Gives a message about what a wesite is */
-p{
-    padding: 30px;
-    color: rgb(99, 66, 66);
-    border-radius: 16px;
-    margin-bottom: 40px;
-    font-size: 30px;
-    margin-top: 10px;
+/* Main Heading */
+h1 {
+    margin-top: 100px;
+    margin-bottom: 60px;
+    font-size: 44px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 1px;
 }
 
-/*desgin for add expenditure button*/
-.addex{
-    text-align: center;
+/* Subtitle */
+p {
+    margin-bottom: 50px;
+    font-size: 18px;
+    color: #bdbdbd;
+}
+
+/* Navigation Buttons */
+nav {
+    margin-top: 60px;
+}
+
+/* Common Button Style */
+nav a,
+nav button {
     display: inline-block;
-    padding: 10px 20px;
-    font-size: 22px;
-    transition: background 0.3s ease;
-    margin: 0 230px;
-    background-color: #e6a0c4;  /* Pink background */
-    color: rgb(121, 14, 14);
-    border-radius: 12px;          /* Rounded corners */
-    text-decoration: none; 
-}
-/*hover for add expenditure button*/
-.addex:hover{
-    background-color: cornsilk;
+    padding: 14px 26px;
+    margin: 16px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-/*design for view all button*/
-.viewall{
-    text-align: center;
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 22px;
-    transition: background 0.3s ease;
-    margin: 0 230px;
-    background-color: #e6a0c4;  /* Pink background */
-    color: rgb(121, 14, 14);
-    border-radius: 12px;          /* Rounded corners */
-    text-decoration: none; 
-}
-/*hover on view all button and change color*/
-.viewall:hover{
-    background-color: cornsilk;
+/* Add Expense Button */
+.addex {
+    background: linear-gradient(135deg, #ff6f91, #ff8fa3);
+    color: #1b1b1b;
+    box-shadow: 0 8px 22px rgba(255, 111, 145, 0.4);
 }
 
-/*desgin for total expenditure button*/
-.totalex{
-    text-align: center;
-    display: inline-block;             
-    padding: 10px 20px;
-    font-size: 22px;
-    /*When you hover over the button, the background color changes smoothly from display color to hover color in 0.3 seconds.*/
-    transition: background 0.3s ease;
-    margin: 0 230px;
-    background-color: #e6a0c4;  /* Pink background */
-    color: rgb(121, 14, 14);
-    border-radius: 12px;          /* Rounded corners */
-    text-decoration: none;          /*removing underline from a tag */
+.addex:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(255, 111, 145, 0.6);
 }
 
-/*hover on total expenditure button and changes color of button*/
-.totalex:hover{
-    background-color: cornsilk;
+/* View All Expense Button */
+.viewall {
+    background: linear-gradient(135deg, #4dd0e1, #26c6da);
+    color: #0f1f22;
+    box-shadow: 0 8px 22px rgba(38, 198, 218, 0.4);
 }
 
-/*the copyright logo design at bottom of page*/
+.viewall:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(38, 198, 218, 0.6);
+}
+
+/* Total Expenditure Button */
+.totalex {
+    background: linear-gradient(135deg, #ffd54f, #ffca28);
+    color: #2a2200;
+    box-shadow: 0 8px 22px rgba(255, 213, 79, 0.4);
+}
+
+.totalex:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(255, 213, 79, 0.6);
+}
+
+/* Pie Chart Button */
+#showChartBtn {
+    background: transparent;
+    color: #ff8fa3;
+    border: 2px solid #ff8fa3;
+    padding: 12px 24px;
+    border-radius: 22px;
+}
+
+#showChartBtn:hover {
+    background: #ff8fa3;
+    color: #1b1b1b;
+    transform: translateY(-3px);
+}
+
+/* Chart Container */
+#chartContainer {
+    background: #242424;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    margin-top: 35px;
+}
+
+/* Footer */
 .footer {
-    margin-top: 400px;
-    color: #555;
-    font-size: 14px;
-    text-align: center;
+    margin-top: 380px;
+    font-size: 13px;
+    color: #9a9a9a;
 }

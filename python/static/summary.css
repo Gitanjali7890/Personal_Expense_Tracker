@@ -1,77 +1,99 @@
-/*overall page*/
-body{
-    background-color: rgb(248, 236, 218);
-    text-align: center;
+/* Base reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Roboto, sans-serif;
 }
-/*for outer div*/
+
+/* Background */
+body {
+    background: #eceff1; /* light grey */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container */
 .summary-container {
-    max-width: 900px;
-    margin: 50px auto;
+    width: 85%;
+    max-width: 720px;
     text-align: center;
 }
 
-/*title of page*/
-h1{
-    color:rgb(105, 33, 33);
-    font-size: 60px;
-    font-family: cursive;
-    text-decoration:underline;
-    text-decoration-color: rgb(75, 162, 165);
-    margin-bottom: 60px;
-    margin-top:70px;
+/* Page title */
+.summary-container h1 {
+    font-size: 40px;
+    color: #2f3640;
+    margin-bottom: 35px;
+    letter-spacing: 1px;
 }
 
-/*monthly and yearly title of card*/
-h2{
-    color:crimson;
-    font-size: 45px;
-    margin-top: 35px;
+/* Card style */
+.card {
+    background: #f5f6fa; /* soft grey */
+    border-left: 6px solid #4b7bec; /* accent */
+    padding: 28px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+/* Card heading */
+.card h2 {
+    font-size: 24px;
+    color: #636e72;
     margin-bottom: 10px;
 }
 
-/*amount of expenditure*/
-p{
-    color:rgb(37, 63, 112);
-    font-size: 30px;
+/* Amount text */
+.card p {
+    font-size: 26px;
     font-weight: 600;
-    font-weight: bold;
-    margin: 0;
+    color: #2d3436;
 }
 
-/*card of total and yearly expenditure*/
-.card {
-    background: #d6d9db;
-    padding: 30px;
-    border-radius: 14px;
-    box-shadow: 0 5px 15px rgba(32, 30, 30, 0.1);
-    margin-bottom: 25px;
+/* Year card accent */
+.card:nth-of-type(2) {
+    border-left-color: #20bf6b; /* subtle green */
 }
 
-/*hover on card*/
-.card:hover{
-    /*Lift the element slightly upwards.*/
-    transform: translateY(-5px);    
-}
-
-/*for view all and add expense button*/
-a{
+/* Buttons */
+.summary-container a {
+    display: inline-block;
+    margin: 18px 10px;
+    padding: 12px 26px;
     text-decoration: none;
-    font-size: 35px;
-    padding: 8px;
-    margin: 15px;
-    box-sizing: content-box;
-    transition: background 0.3s ease;
-    border-radius: 12px;
-    cursor:pointer;
-}
-/*hover on buttons*/
-a:hover{
-    background-color: rgb(163, 116, 211);
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
 
-/*copyright logo*/
+/* View Expenses */
+.summary-container a[href="/view"] {
+    background: #576574;
+    color: #ffffff;
+}
+
+.summary-container a[href="/view"]:hover {
+    background: #2f3640;
+}
+
+/* Add Expense */
+.summary-container a[href="/add"] {
+    background: #4b7bec;
+    color: white;
+}
+
+.summary-container a[href="/add"]:hover {
+    background: #3867d6;
+}
+
+/* Footer */
 .footer {
-    margin-top: 40px;
-    color: #555;
+    margin-top: 35px;
     font-size: 14px;
+    color: #7f8c8d;
 }

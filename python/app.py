@@ -37,9 +37,29 @@ init_db()
 
 # ---------- ROUTES ----------
 
-@app.route('/')     #------ route for home-----
+#---- route for index---
+@app.route('/')
 def home():
-    return render_template('index.html')
+    conn = get_db_connection()
+
+    cursor = conn.execute("""
+        SELECT category, SUM(amount) as total_amount
+        FROM expenses
+        GROUP BY category
+    """)
+
+    category_data = [
+        {"category": row["category"], "total_amount": row["total_amount"]}
+        for row in cursor.fetchall()
+    ]
+
+    conn.close()
+
+    return render_template(
+        'index.html',
+        category_data=category_data
+    )
+
 
 @app.route('/add', methods=['GET', 'POST'])    #----route for add expenses----
 def add_expense():
